@@ -1,0 +1,192 @@
+/*!************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./scss/index.scss ***!
+  \************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+/*!****************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./scss/index.scss (1) ***!
+  \****************************************************************************************************************/
+.excel__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 34px;
+  padding: 8px 4px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.excel__header .input {
+  margin: 0;
+  padding: 2px 7px;
+  min-width: 1px;
+  color: #000;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  height: 20px;
+  font-style: 18px;
+  line-height: 22px;
+  outline: none;
+}
+.excel__header .input:hover {
+  border: 1px solid #c0c0c0;
+}
+.excel__header .input:focus {
+  border: 2px solid #1a73e8;
+}
+.excel__header .button {
+  height: 24px;
+  min-width: 24px;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.7);
+}
+.excel__header .button i {
+  font-size: 18px;
+}
+.excel__header .button:active, .excel__header .button.active {
+  color: red;
+}
+.excel__header .button:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.excel__toolbar {
+  position: absolute;
+  height: 40px;
+  left: 0;
+  right: 0;
+  top: 34px;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 7px 10px;
+  display: flex;
+}
+.excel__toolbar .button {
+  height: 24px;
+  min-width: 24px;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.7);
+}
+.excel__toolbar .button i {
+  font-size: 18px;
+}
+.excel__toolbar .button:active, .excel__toolbar .button.active {
+  color: green;
+}
+.excel__toolbar .button:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+body {
+  background-color: #1a7;
+}
+
+.excel__formula {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 74px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #c0c0c0;
+}
+.excel__formula .info {
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+  border-right: 1px solid #c0c0c0;
+  min-width: 40px;
+}
+.excel__formula .input {
+  padding: 4px;
+  font-size: 12px;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  color: #000;
+}
+
+.excel__table {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 98px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+.excel__table .row {
+  display: flex;
+  flex-direction: row;
+  min-height: 24px;
+}
+.excel__table .row-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  height: 100%;
+  border: 1px solid #c0c0c0;
+  background: #f8f9fa;
+  border-top: none;
+}
+.excel__table .row-data {
+  display: flex;
+}
+.excel__table .column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  min-width: 40px;
+  width: 120px;
+  border: 1px solid #c0c0c0;
+  height: 100%;
+  border-top: 0;
+  border-left: 0;
+}
+.excel__table .cell {
+  min-width: 40px;
+  padding: 5px;
+  width: 120px;
+  height: 100%;
+  border: 1px solid #e2e3e3;
+  border-top: none;
+  border-left: none;
+  color: #111;
+  white-space: nowrap;
+  outline: none;
+}
+.excel__table .cell.selected {
+  border: none;
+  outline: 2px solid #3c74ff;
+  z-index: 2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+}
+
+.excel {
+  position: relative;
+  color: #888888;
+  height: 100%;
+  max-width: 100%;
+  font-size: 0.8rem;
+}
+
+/*# sourceMappingURL=main.bundle.css.map*/
