@@ -1,9 +1,7 @@
 const path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CopyPlugin = require("copy-webpack-plugin"),
-    MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-    ESLintPlugin = require('eslint-webpack-plugin')
-
+    MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = (env, argv) => {
 
@@ -27,7 +25,6 @@ module.exports = (env, argv) => {
             }),
         ]
         if (isDev) {
-           base.push(new ESLintPlugin())
         }
         return base
     }
