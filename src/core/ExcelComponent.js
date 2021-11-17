@@ -1,37 +1,57 @@
 /* eslint-disable no-unused-vars */
 import {DomListener} from "./DomListener";
 
-export class ExcelComponent extends DomListener{
+export class ExcelComponent extends DomListener {
     constructor($root, options = {}) {
-        super($root, options.listeners);
+        super($root, options.listeners)
         this.name = options.name || ''
         this.emitter = options.emitter
+        this.subscribe = options.subscribe || []
+        this.store = options.store
         this.unsubscribers = []
+
         this.prepare()
     }
 
-    prepare(){
+    // Настраивааем наш компонент до init
+    prepare() {}
 
-    }
-
-    toHtml(){
+    // Возвращает шаблон компонента
+    toHTML() {
         return ''
     }
 
-    $emit(event, ...args){
+    // Уведомляем слушателей про событие event
+    $emit(event, ...args) {
         this.emitter.emit(event, ...args)
     }
 
-    $on(event, fn){
+    // Подписываемся на событие event
+    $on(event, fn) {
         const unsub = this.emitter.subscribe(event, fn)
         this.unsubscribers.push(unsub)
     }
 
-    init(){
+    $dispatch(action) {
+        this.store.dispatch(action)
+    }
+
+    // Сюда приходят только изменения по тем полям, на которые мы подписались
+    storeChanged() {}
+
+    isWatching(key) {
+        return this.subscribe.includes(key)
+    }
+
+    // Инициализируем компонент
+    // Добавляем DOM слушателей
+    init() {
         this.initDomListeners()
     }
 
-    destroy(){
+    // Удаляем компонент
+    // Чистим слушатели
+    destroy() {
         this.removeDomListeners()
         this.unsubscribers.forEach(unsub => unsub())
     }

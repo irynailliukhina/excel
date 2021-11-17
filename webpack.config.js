@@ -48,7 +48,7 @@ module.exports = (env, argv) => {
         },
         devtool: isDev ? 'source-map' : false,
         devServer: {
-            port: 3000,
+            port: 3033,
             open: true,
             hot: true,
             watchFiles: './',
