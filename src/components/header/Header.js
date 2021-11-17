@@ -1,5 +1,8 @@
 import {ExcelComponent} from "../../core/ExcelComponent";
 import {debounce} from "../../core/utils";
+import {changeName} from "../../redux/actions";
+import {$} from "../../core/dom";
+import {ActiveRouter} from "../../core/routes/ActiveRouter";
 
 export class Header extends ExcelComponent {
     static className = 'excel__header'
@@ -7,7 +10,7 @@ export class Header extends ExcelComponent {
     constructor($root, options) {
         super($root, {
             name: 'Header',
-            listeners: ['input'],
+            listeners: ['input', 'click'],
             ...options
         });
     }
@@ -20,18 +23,38 @@ export class Header extends ExcelComponent {
         return `
             <input type="text" class="input" value='${state['tableName']}' />
             <div>
-                    <div class="button"> <i class="material-icons">delete</i></div>
-                    <div class="button">
-                      <i class="material-icons">exit_to_app</i>
+                <div class="button" data-button="remove"> 
+                <i class="material-icons" data-button="remove">delete</i>
+                </div>
+            <a href="#">
+                <div class="button" data-button="exit">
+                    <i class="material-icons" >exit_to_app</i>
+                </div>
+            </a>
             </div>
-            </div>`
+            `
     }
 
     toHtml(){
        return this.createName(this.store.getState())
     }
 
-    onInput(event){
-        this.$emit('header:addName', event.target.value)
+    onInput(event) {
+        const $target = $(event.target)
+        this.$dispatch(changeName($target.text()))
+    }
+
+    onClick(event){
+        const $target = $(event.target)
+
+        if($target.data.button === 'remove'){
+            const decision = confirm('Do you really want to delete such a great table')
+            if (decision){
+                localStorage.removeItem('excel:'+ ActiveRouter.param[1])
+                ActiveRouter.navigate('')
+            }
+        } else if($target.data.button === 'exit'){
+            ActiveRouter.navigate('')
+        }
     }
 }

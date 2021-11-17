@@ -3,7 +3,6 @@ export const defaultStyles = {
     fontWeight: 'normal',
     textDecoration: 'none',
     fontStyle: 'normal',
-    tableName: 'New Table'
 }
 
 export const tableName = 'New Table'
