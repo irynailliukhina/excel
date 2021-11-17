@@ -1,4 +1,5 @@
 const path = require('path'),
+    webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CopyPlugin = require("copy-webpack-plugin"),
     MiniCssExtractPlugin = require("mini-css-extract-plugin")
@@ -23,6 +24,9 @@ module.exports = (env, argv) => {
             new MiniCssExtractPlugin({
                 filename: filename('css')
             }),
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            })
         ]
         if (isDev) {
         }

@@ -1,5 +1,5 @@
-import {storage} from "../core/utils";
 import {defaultStyles, tableName} from "../constants";
+import {getDate} from "../core/utils";
 
 const defaultState = {
     rowState: {},
@@ -8,7 +8,8 @@ const defaultState = {
     dataState: {},
     tableName: tableName,
     currentText: '',
-    currentStyles: defaultStyles
+    currentStyles: defaultStyles,
+    date: ''
 }
 const normilize = state => ({
     ...state,
@@ -16,7 +17,6 @@ const normilize = state => ({
     currentText: ''
 })
 
-
-export const initialState = storage('excel-state')
-    ? normilize(storage('excel-state'))
-    : defaultState
+export function normalizeInitialState(state){
+    return state ? normilize(state) : defaultState
+}

@@ -1,5 +1,7 @@
 //Pure functions
 
+import {Page} from "./Page";
+
 export function capitalize(string){
     if (typeof string !== 'string'){
         return ''
@@ -41,14 +43,19 @@ export function toInlineStyles(styles={}){
         .join(';')
 }
 
-export function debounce(fn, wait){
+export function debounce(fn, wait) {
     let timeout
-    return function (...args){
+    return function(...args) {
         const later = () => {
             clearTimeout(timeout)
-            fn(this, args)
+            // eslint-disable-next-line
+            fn.apply(this, args)
         }
         clearTimeout(timeout)
         timeout = setTimeout(later, wait)
     }
+}
+
+export function preventDefault(event){
+    return event.preventDefault()
 }
